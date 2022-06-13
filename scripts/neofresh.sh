@@ -4,8 +4,8 @@ do
   neofetch
   H=$(date +%H)
   if (( 6 <= 10#$H && 10#$H < 20 )); then 
-    figlet -c "take a break" | lolcat -a -d 100 #-f small.flf 
+    figlet -c "relax" | lolcat -a -d 100 #-f small.flf 
   else
-    figlet -c "good night" | lolcat -a -d 100
+    figlet -c "g'night" | lolcat -a -d 100
   fi
 done
