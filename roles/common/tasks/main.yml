@@ -21,81 +21,13 @@
     name: curl
   tags: curl
 
-- name: Install tmux
+- name: Install neofetch
   apt:
-    name: tmux
-  tags: tmux
+    name: neofetch
+  tags: neofetch
 
-- name: Install tty-clock
-  apt:
-    name: tty-clock
-  tags: tty-clock
-
-- name: Install fortune
-  apt:
-    name: fortune
-  tags: fortune
-
-- name: Install figlet
-  apt:
-    name: figlet
-  tags: figlet
-
-- name: Install lolcat
-  apt:
-    name: lolcat
-  tags: lolcat
-
-- name: Install cowsay
-  apt:
-    name: cowsay
-  tags: cowsay
-
-- name: Install fortune
-  apt:
-    name: fortune
-  tags: fortune
-
-- name: Create dash user
+- name: add teddy to sudo group
   user:
-    name: dash
-  tags: dash-user
-
-#- name: Set dash autologin
-  # user:
-  #   name: dash
-  # tags: autologin
-
-- name: Add dash cron entry for uptime-kuma
-  cron:
-    name: Uptime Kuma Ping
-    minute: "0"
-    user: dash
-    job: curl {{ kuma-url }}
-  tags: cron
-
-- name: Add dash cron entry for initializing tmux session
-  cron:
-    name: Uptime Kuma Ping
-    special_time: reboot
-    user: dash
-    job: /home/dash/scripts/dashinit.sh
-  tags: cron
-
-- name: Copy scripts to dash home
-  copy:
-    src: /srv/myfiles/foo.conf
-    dest: /etc/foo.conf
-    owner: dash
-    group: dash
-    mode: u=rwx,g=rwx,o=r
-  tags: scripts
-
-- name: Set dash .bashrc
-  lineinfile:
-    dest: /home/dash/.bashrc
-    line: 'if [ ! "$TMUX" ]; then tmux attach-session -t "Dash" fi'
-    owner: dash
-    state: present
-    insertafter: EOF
-  tags: bashrc
+    name: teddy
+    groups: sudo
+    append: yes
