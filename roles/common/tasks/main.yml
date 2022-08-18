@@ -1,0 +1,33 @@
+---
+# This playbook contains common plays that will be run on all nodes.
+
+- name: Install sudo
+  apt:
+    name: sudo
+  tags: sudo
+
+- name: Install nano
+  apt:
+    name: nano
+  tags: nano
+
+- name: Install git
+  apt:
+    name: git
+  tags: git
+
+- name: Install curl
+  apt:
+    name: curl
+  tags: curl
+
+- name: Install neofetch
+  apt:
+    name: neofetch
+  tags: neofetch
+
+- name: add teddy to sudo group
+  user:
+    name: teddy
+    groups: sudo
+    append: yes
