@@ -23,4 +23,9 @@
           group: users
       autologin_startup: /home/dash/scripts/attachtmux.sh
       # - https://github.com/ntd/ansible-role-autologin
+    - role: ansible-wifi
+      layereight.wifi:
+      wifi_ssid: {{ wifi_ssid }}
+      wifi_psk: {{ wifi_psk }}
+      # - https://github.com/layereight/ansible-wifi
     - dashboard
