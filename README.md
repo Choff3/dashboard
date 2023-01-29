@@ -4,4 +4,4 @@ This repo contains Ansible playbooks for provisioning a tmux based wall dashboar
 The configs are specific to my setup, screen size, location etc.
 
 ## Running
-`ansible-playbook -i hosts site.yml`
+`ansible-playbook -i hosts site.yml --ask-become-pass`
