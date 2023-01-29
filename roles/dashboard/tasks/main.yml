@@ -48,7 +48,7 @@
 
 - name: Add dash cron entry for initializing tmux session
   cron:
-    name: Uptime Kuma Ping
+    name: tmux init
     special_time: reboot
     user: dash
     job: /home/dash/scripts/dashinit.sh
