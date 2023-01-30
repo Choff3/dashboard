@@ -26,8 +26,8 @@
     name: neofetch
   tags: neofetch
 
-- name: add teddy to sudo group
+- name: add primary user to sudo group
   user:
-    name: teddy
+    name: '{{ primary_user }}'
     groups: sudo
     append: yes
