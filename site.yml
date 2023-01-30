@@ -3,7 +3,7 @@
 
 - name: apply common configuration to all nodes
   hosts: all
-  remote_user: teddy
+  remote_user: '{{ primary_user }}'
   become: true
   become_method: su
   become_user: root
@@ -12,15 +12,16 @@
 
 - name: apply dashboard configs
   hosts: dashboard
-  remote_user: teddy
+  remote_user: '{{ primary_user }}'
   become: true
   become_method: su
   become_user: root
   roles:
+    - dashboard
     - role: ansible_role_autologin
       autologin_user:
           name:  dash
           group: users
       autologin_startup: /home/dash/scripts/attachtmux.sh
-      # - https://github.com/ntd/ansible-role-autologin
-    - dashboard
+      # https://github.com/ntd/ansible-role-autologin
+    - reboot
