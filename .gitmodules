@@ -1,6 +1,3 @@
 [submodule "roles/ansible_role_autologin"]
 	path = roles/ansible_role_autologin
 	url = https://github.com/ntd/ansible-role-autologin.git
-[submodule "roles/ansible-wifi"]
-	path = roles/ansible-wifi
-	url = https://github.com/layereight/ansible-wifi
