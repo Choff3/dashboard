@@ -84,7 +84,7 @@
     ifname: '{{ wifi_interface }}'
     ssid: '{{ wifi }}'
     wifi_sec:
-      key-mgmt: wpa2-psk
+      key-mgmt: wpa-psk
       psk: '{{ wifi_pass }}'
     autoconnect: true
     state: present
