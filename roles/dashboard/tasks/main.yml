@@ -38,6 +38,10 @@
     name: cmatrix
   tags: cmatrix
 
+- name: Add the dash user
+  ansible.builtin.user:
+    name: dash
+
 - name: Add dash cron entry for uptime-kuma
   cron:
     name: Uptime Kuma Ping
@@ -67,6 +71,3 @@
   user:
     name: dash
     shell: /bin/bash
-
-- name: Reboot
-  reboot:
