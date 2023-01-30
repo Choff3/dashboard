@@ -80,11 +80,11 @@
 - name: Create the wifi connection
   community.general.nmcli:
     type: wifi
-    conn_name: {{ wifi }}
-    ifname: {{ wifi_interface }}
-    ssid: {{ wifi }}
+    conn_name: '{{ wifi }}'
+    ifname: '{{ wifi_interface }}'
+    ssid: '{{ wifi }}'
     wifi_sec:
       key-mgmt: wpa2-psk
-      psk: {{ wifi_pass }}
+      psk: '{{ wifi_pass }}'
     autoconnect: true
     state: present
