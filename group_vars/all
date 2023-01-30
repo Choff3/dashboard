@@ -3,5 +3,8 @@
 
 primary_user:
 kuma:
+
+# WiFi
 wifi:
 wifi_pass:
+wifi_interface: wlp7s0

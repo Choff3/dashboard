@@ -38,6 +38,11 @@
     name: cmatrix
   tags: cmatrix
 
+- name: Install network-manager
+  apt:
+    name: network-manager
+  tags: network-manager
+
 - name: Add the dash user
   ansible.builtin.user:
     name: dash
@@ -67,7 +72,19 @@
     mode: u=rwx,g=rwx,o=r
   tags: scripts
 
-- name: change dash shell to bash
+- name: Change dash shell to bash
   user:
     name: dash
     shell: /bin/bash
+
+- name: Create the wifi connection
+  community.general.nmcli:
+    type: wifi
+    conn_name: {{ wifi }}
+    ifname: {{ wifi_interface }}
+    ssid: {{ wifi }}
+    wifi_sec:
+      key-mgmt: wpa2-psk
+      psk: {{ wifi_pass }}
+    autoconnect: true
+    state: present
