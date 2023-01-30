@@ -3,7 +3,7 @@
 
 - name: apply common configuration to all nodes
   hosts: all
-  remote_user: teddy
+  remote_user: '{{ primary_user }}'
   become: true
   become_method: su
   become_user: root
@@ -12,20 +12,23 @@
 
 - name: apply dashboard configs
   hosts: dashboard
-  remote_user: teddy
+  remote_user: '{{ primary_user }}'
   become: true
   become_method: su
   become_user: root
   roles:
+    - dashboard
     - role: ansible_role_autologin
       autologin_user:
           name:  dash
           group: users
       autologin_startup: /home/dash/scripts/attachtmux.sh
-      # - https://github.com/ntd/ansible-role-autologin
+      # https://github.com/ntd/ansible-role-autologin
     - role: ansible-wifi
       layereight.wifi:
-      wifi_ssid: "{{ wifi_ssid }}"
-      wifi_psk: "{{ wifi_psk }}"
-      # - https://github.com/layereight/ansible-wifi
-    - dashboard
+      wifi_ssid: '{{ wifi_ssid }}'
+      wifi_psk: '{{ wifi_psk }}'
+      wifi_country: US
+      wifi_rfkill_unblock: False
+      # https://github.com/layereight/ansible-wifi
+    - reboot
