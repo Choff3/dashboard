@@ -9,5 +9,3 @@ jobs:
       - uses: actions/checkout@v2
       - name: Run ansible-lint
         uses: ansible/ansible-lint-action@main
-        with:
-           path: site.yml
