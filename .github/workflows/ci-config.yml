@@ -15,4 +15,4 @@ jobs:
         uses: ansible/ansible-lint-action@main
         # optional:
         with:
-           path: .  # <-- only one value is allowed
+           path: site.yml  # <-- only one value is allowed
